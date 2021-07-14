@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varta',sans-serif;
+}
+
+body{
+    background: rgb(168, 211, 240);
+}
+
+.main_div{
+    height: 100vh;
+}
+
+.card{
+    border: none;
+    border-top: 5px solid palevioletred;
+    background: white;
+    color: #55737a;
+}
+
+
+p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+a{
+    text-decoration: none;
+}
+
+.fab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: rgb(154, 117, 209);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transition: all 0.2s linear;
+}
+
+fab:hover{
+    cursor: pointer;
+    background: #aafffa;
+}
+
+.fa-instagram{
+    color: white;
+    background: #db0bca;
+}
+.fa-facebook{
+    color: white;
+    background: #2449ec;
+}
+.fa-twitter{
+    background: rgb(55, 135, 226);
+    color: white;
+}
+
+division{
+    width: 100%;
+    text-align: center;
+    margin: 30px auto 20px;
+}
+
+.division span{
+    font-weight: 500;
+    font-size: 40px;
+    
+}
+
+.was-validated{
+    padding: 0 25px 0 35px;
+}
+
+.form-control{
+    border: 1px solid green;
+    border-radius: 2px;
+    background:rgb(221, 216, 216);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.form-control:focus{
+    border: 1px solid green;
+    border-radius: 5px;
+    background:rgb(221, 216, 216);
+    box-shadow: none;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.main-heading{
+    font-weight: 500;
+    font-size: 25px;
+    
+}
+
+
+.bn:hover{
+    cursor: pointer;
+}
+
+.form-check-input{
+    width: 1rem!important;
+    height: 1rem!important;
+    margin-top: 5px;
+}
+
+.btn-primary{
+    background: linear-gradient(135deg,rgba(175,106,252,1),39%,rgb(245, 187, 63) 100%) !important;
+    border: none;
+    border-radius: 50px;
+    
+}
+small{
+    color: #f2ceff;
+}
+
+.register{
+    color: #575575;
+    text-decoration: none;
+}
+
+.register:hover{
+    color: purple;
+    text-decoration: none;
+}
+
+@media(max-width:768px){
+    .row{
+        --bs-gutter-x:0rem;
+        --bs-gutter-y:0;
+    }
+}
+
