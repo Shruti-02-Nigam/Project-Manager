@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Varta',sans-serif;
+}
+
+.card{
+    background: white;
+    color: black;
+    /* border-top: 5px solid palevioletred; */
+    box-shadow: 15px 15px 10px rgb(10, 121, 165) ;
+    position: relative;
+    height: 85vh;
+}
+
+body{
+    background: rgb(114, 180, 224);
+}
+
+.form-control{
+    background: rgb(231, 215, 215);
+}
+
+.form-control:focus{
+    background: rgb(231, 215, 215);
+}
+
+.btn-primary{
+    background-color: rgb(243, 44, 44);
+    border-radius: 15px;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(243, 44, 44);
+
+}
+
+.btn-primary:hover{
+    background-color: rgb(243, 44, 44);
+    border-radius: 15px;
+    
+}
+
+a:hover{
+    text-decoration: none;
+    color: rgb(243, 44, 44);
+}
+
+.valid-feedback{
+    color: black;
+}
+
