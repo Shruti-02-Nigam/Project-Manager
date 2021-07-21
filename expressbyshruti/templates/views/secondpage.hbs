@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!--tail wind css-->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d5ded2b5f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style4.css">
+    
+    
+    <title>ProjectManager</title>
+
+  </head>
+  <body>
+       <!-- role="button" in a blacktie image -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-capitalize" >
+                        <i class="fab fa-black-tie width-auto"></i>
+                        &nbsp;ProjectManager
+                    </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">  </ul>
+                                <a href="/">
+                                <button role="button" class="btn btn-outline-success" >sign out</button></a>  &nbsp;&nbsp;  
+                                <!-- <a role="button"><i class="fas fa-user px-3"></i></a> -->
+                    
+                      </div>
+                </div>
+        </nav>
+        </header>
+
+
+
+
+   
+          <div class="d-flex align-items-start">
+                <div class="nav flex-column nav-pills me-3 shadow vh-100 p-5 rounded" id="v-pills-tab" role="tablist">
+                  <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                  <button class="nav-link" id="v-pills-project-tab" data-bs-toggle="pill" data-bs-target="#v-pills-project" type="button" role="tab" aria-controls="v-pills-project" aria-selected="false">Projects</button>
+                  <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+                  <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+                </div>
+              
+                <!--DOM content displayed-->
+                <div class="tab-content p-3" id="v-pills-tabContent">
+
+                  <div class="home tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">HOME</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                           <!--me => MARGIN  END-->
+                           <div class="btn ">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#project_details">add project&nbsp;<i class="fas fa-plus"></i></button>
+                          </div>                
+                        </div>
+                      </div>
+
+                    <!-- MODAL -->
+                    <div class="modal fade" id="project_details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+
+
+
+                          <div class="modal-body">
+
+
+                               <form action="/secondpage" method="post">
+                                    <div class="form-group">
+                                      <label for="project_name">Project Name</label>
+                                      <input type="text" id="project_name" class="form-control" name="projectname">
+                                    </div>
+              
+                                    <div class="form-group">
+                                      <label for="project_desc">Project Description</label>
+                                      <textarea class="form-control" id="project_desc" rows="5" name="desc"></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="team_size">Team Size</label>
+                                        <select id="team_size" class="form-control">
+                                            <option disabled=true selected>Select One</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                    <!--FOR MEMBERS-->
+                                  <div class="members">
+                                    <div class="form-group">
+                                      <label for ="team_mem1">Members</label>
+                                      <input type="text" id="team_mem1" class="form-control" name="memname1">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for ="team_mem2">Members</label>
+                                      <input type="text" id="team_mem2" class="form-control" name="memname2">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for ="team_mem3">Members</label>
+                                      <input type="text" id="team_mem3" class="form-control" name="memname3">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for ="team_mem4">Members</label>
+                                      <input type="text" id="team_mem4" class="form-control" name="memname4">
+                                    </div>
+                                  </div>
+                              <!-- form ends here -->
+
+                            </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary sub">Save changes</button>
+                             </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                     
+                  </div> <!--HOME DOM ENDS HERE-->
+
+
+
+                  <div class="tab-pane fade" id="v-pills-project" role="tabpanel" aria-labelledby="v-pills-project-tab">
+                    
+                    
+
+
+
+                       <div class="project-content p-3">
+                      <h3 class="">Projects</h3>
+                      <hr>
+                      <div class="me-3">
+                      
+                       <form action="/fileupload" enctype="multipart-form-data" method="POST">
+                        <input type="file" name="myFile">
+                        {{!-- <input type="submit" value="uploadocs">--}}
+                        <button type="submit" >Add Files&nbsp;</button> 
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="table-responsive">
+                      <table class="table table-stripped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Member 1</th>
+                            <th scope="col">Member 2</th>
+                            <th scope="col">Member 3</th>
+                            <th scope="col">Member 4</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table1">
+                          <tr>
+                            <td>{{this.projectname}}</td>
+                            <td>{{this.memname1}}</td>
+                            <td>{{this.memname2}}</td>
+                            <td>{{this.memname3}}</td>
+                            <td>{{this.memname4}}</td>
+                          </tr>
+                          <tr>
+                            <td>{{this.projectname}}</td>
+                            <td>{{this.memname1}}</td>
+                            <td>{{this.memname2}}</td>
+                            <td>{{this.memname3}}</td>
+                            <td>{{this.memname4}}</td>
+                          </tr>
+                          <tr>
+                            <td>1,007</td>
+                            <td>placeholder</td>
+                            <td>tabular</td>
+                            <td>information</td>
+                            <td>irrelevant</td>
+                          </tr>
+                          <tr>
+                            <td>1,008</td>
+                            <td>random</td>
+                            <td>data</td>
+                            <td>placeholder</td>
+                            <td>text</td>
+                          </tr>
+                          <tr>
+                            <td>1,009</td>
+                            <td>placeholder</td>
+                            <td>irrelevant</td>
+                            <td>visual</td>
+                            <td>layout</td>
+                          </tr>
+                          <tr>
+                            <td>1,010</td>
+                            <td>data</td>
+                            <td>rich</td>
+                            <td>dashboard</td>
+                            <td>tabular</td>
+                          </tr>
+                          <tr>
+                            <td>1,011</td>
+                            <td>information</td>
+                            <td>placeholder</td>
+                            <td>illustrative</td>
+                            <td>data</td>
+                          </tr>
+                          <tr>
+                            <td>1,012</td>
+                            <td>text</td>
+                            <td>placeholder</td>
+                            <td>layout</td>
+                            <td>dashboard</td>
+                          </tr>
+                          <tr>
+                            <td>1,013</td>
+                            <td>dashboard</td>
+                            <td>irrelevant</td>
+                            <td>text</td>
+                            <td>visual</td>
+                          </tr>
+                          <tr>
+                            <td>1,014</td>
+                            <td>dashboard</td>
+                            <td>illustrative</td>
+                            <td>rich</td>
+                            <td>data</td>
+                          </tr>
+                          <tr>
+                            <td>1,015</td>
+                            <td>random</td>
+                            <td>tabular</td>
+                            <td>information</td>
+                            <td>text</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div><!--profile DOM ENDS HERE-->
+
+
+                  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    <div class="A-content p-3">
+                      <h3>A</h3>
+                    </div>
+
+                  </div><!--messages DOM ENDS HERE-->
+
+
+                  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <h3>hi i am in settings </h3>
+
+                  </div><!--settings DOM ENDS HERE-->
+               
+                </div><!--DOM ENDS HERE-->
+
+      </div> <!--main DOM ENDS HERE-->
+     
+
+
+    <script src="index.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {return new bootstrap.Tooltip(tooltipTriggerEl)})
+    </script>  
+    <script src="javascript/index.js"></script>
+ 
+  </body>
+</html>

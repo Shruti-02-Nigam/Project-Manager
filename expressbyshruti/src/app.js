@@ -8,11 +8,14 @@ const jwt = require("jsonwebtoken");
 //const bodyParser = require("body-parser");
 //const multer = require("multer");
 var fs = require('fs');
-
+// var alert = require('alert');
+// var popup = require('popups');
 
 const Upload = require('./models/uploads');
 
-// require("./db/conn2");
+const Team = require('./models/projdetails');
+
+
 require("./db/conn");
 const Register = require("./models/registers");
 const { json } = require("express");
@@ -61,6 +64,28 @@ app.get("/fileupload",(req,res)=>{
 app.get("/datafiles",(req,res)=>{
     res.render("datafiles");
 });
+
+// app.get("/secondpage",(req,res) =>{
+    //  var details = [];
+    // try{
+    //     // console.log("success");
+    //     const cursor = db.collections('TEAMDATA').find();
+    //     cursor.forEach(function(doc,err){
+    //         details.push(doc);
+    //         console.log("success");
+    //     },function(){
+    //         res.render("secondpage",{table : details});
+    //     }
+    //     );
+        
+
+    // }
+    // catch(err){
+    //     res.send(err);
+    // }
+//     res.render("secondpage");
+    
+// });
 
 app.get("/resetpass/:id/:token/:useremail",(req,res)=>{
     const {id,token,useremail} = req.params;
@@ -124,7 +149,7 @@ app.post("/register" , async (req,res) =>{
             const isMatch = await bcrypt.compare(password,useremail.password);
             
             if(isMatch){
-                res.status(201).render("index");
+                res.status(201).render("secondpage");
             }else{
                 res.send("INVALID LOGIN DETAILS");
             }
@@ -202,9 +227,11 @@ app.post("/fileupload",async(req,res)=>{
 				console.log("Saved a document to MongoDB.");
 				try{
                     // res.send("Successfully uploaded");
-                    res.render("datafiles");
+                    
 					console.log("Exit!");
 					process.exit(0);
+                    res.render("secondpage");
+                    
 				}catch(e){
 					console.log(e);
                     
@@ -219,8 +246,82 @@ app.post("/fileupload",async(req,res)=>{
         }
 });
 
+app.post("/secondpage",async(req,res)=>{
+    try{
+    const projname =  req.body.projectname;
+    const desc = req.body.desc;
+    const memname1 = req.body.memname1;
+    const memname2 = req.body.memname2;
+    const memname3 = req.body.memname3;
+    const memname4 = req.body.memname4;
+    
+    const doc1 = new Team({
+							projectname: projname,
+                            desc: desc,
+							membername1: memname1,
+                            membername2: memname2,
+                            membername3: memname3,
+                            membername4: memname4
+					});	
+		doc1.save()
+        
+		.then(docu => {
+				console.log("Saved Team Details to MongoDB.");
+				try{
+                   
+                    
+					console.log("Exit!");
+					// process.exit(0);
+                    res.render("secondpage");
+				}catch(e){
+					console.log(e);
+                    
+				}
+		})
+        .catch(error =>{
+            res.send("Invalid type");
+        })
+    }
+    catch(error){
+            res.send("INVALID TYPE");
+        }
+       
+       
+});
 
+app.get('/secondpage', async(req,res)=>{
+    var details = [];
+    console.log("success1");
+    try{
+        console.log("success2");
+        const cursor = Team.find({});
+        
+        console.log("success3");
+        // await cursor.forEach(function(doc,err){
+        //      details.push(doc);
 
+        //     console.log("success4");
+        // },function(){
+        //     res.render("/secondpage",{table1 : details});
+        // }
+        // );
+        for await (const doc of cursor) {
+            details.push(doc);
+            // console.table(details);
+             }
+             
+                
+                res.render("secondpage",{table1 : details[1]});
+                 
+
+            
+            
+
+    }
+    catch(err){
+        res.send(err);
+    }
+});
 
 app.listen(port,()=>{
     console.log(`successfully receiving data from port ${port}`);

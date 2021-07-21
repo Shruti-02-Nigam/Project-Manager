@@ -1,0 +1,23 @@
+tml{
+    height: 100%;
+}
+body{
+    height:100%;
+    margin:0px;
+    padding:0;
+}
+.form input{
+
+    width:400px;
+    height:auto;
+}
+.home{
+    
+}
+
+.members{
+    visibility: hidden;
+} 
+#team_mem1,#team_mem2,#team_mem3,#team_mem4{
+    visibility: hidden;
+}
